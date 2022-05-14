@@ -111,11 +111,20 @@
 ;; project add root
 (map! :map projectile-command-map "SPC" #'projectile-add-known-project)
 
+;; format
+(map! :map ctl-x-map "f" #'+format/buffer)
+
 ;; region
 (map! :map global-map "C-=" #'er/contract-region)
 (map! :map global-map "C-+" #'er/expand-region)
 
 ;; mark
+
+;; terminal
+(map! :after vterm
+      :map vterm-mode-map
+      "M-m C-c" #'vterm-send-C-c
+      "M-m C-x" #'vterm-send-C-x)
 
 ;; markdown-mode
 (set-popup-rule! "*eww"
@@ -138,6 +147,7 @@
   )
 (setq undo-tree-visualizer-diff nil)
 
+;;; lang
 ;; c/c++
 (setq lsp-clients-clangd-args '("-j=3"
 				"--background-index"
@@ -146,3 +156,6 @@
 				"--header-insertion=never"
 				"--header-insertion-decorators=0"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+
+;; python
+(load! "lang/python")
