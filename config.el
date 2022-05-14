@@ -97,24 +97,23 @@
 ;; warp line
 (map! :map global-map "C-z" #'visual-line-mode)
 
-;;; bind for new-buffer
+;; bind for new-buffer
 (map! "C-x n"  #'+default/new-buffer)
 
-;;; comment
+;; comment
 (map! :map global-map "M-;" nil)
 (map! :map global-map "C-/" #'comment-line)
 (map! :map global-map "C-x /" #'comment-dwim)
 
-;;; tab
+;; tab
 (map! :map ctl-x-map "t SPC" #'tab-bar-mode)
 
-;;; project add root
+;; project add root
 (map! :map projectile-command-map "SPC" #'projectile-add-known-project)
 
-;;; region
+;; region
 (map! :map global-map "C-=" #'er/contract-region)
 (map! :map global-map "C-+" #'er/expand-region)
-;; === key binding <<<
 
 ;; mark
 
@@ -139,3 +138,11 @@
   )
 (setq undo-tree-visualizer-diff nil)
 
+;; c/c++
+(setq lsp-clients-clangd-args '("-j=3"
+				"--background-index"
+				"--clang-tidy"
+				"--completion-style=detailed"
+				"--header-insertion=never"
+				"--header-insertion-decorators=0"))
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
