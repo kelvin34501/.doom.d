@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 ;; python
+(setq lsp-pyright-auto-import-completions nil)
+
 (set-formatter! 'black ; overwrite prefefined black formatter
   '("black" "-q" "--line-length" "120" "-")
   )
@@ -8,14 +10,21 @@
 (defun local-pyvenv-auto-activate ()
   (if (boundp 'local-pyvenv-path)
       (progn
-        (message "local-pyvenv-path: %s" local-pyvenv-path)
-        (pyvenv-activate (concat (file-name-as-directory (projectile-project-root)) local-pyvenv-path))
+        (message "[hook]: local-pyvenv-path activate: %s" local-pyvenv-path)
+        (pyvenv-activate (if (file-name-absolute-p local-pyvenv-path)
+                             local-pyvenv-path
+                           (concat (file-name-as-directory (projectile-project-root)) local-pyvenv-path)))
         )
-    (progn
-      (message "local-pyvenv-path unset")
-      (pyvenv-deactivate)
-      )
+    )
+  )
+(defun local-pyvenv-auto-deactivate ()
+  (if (boundp 'local-pyvenv-path)
+      (progn
+        (message "[hook]: local-pyvenv-path deactivate")
+        (pyvenv-deactivate)
+        )
     )
   )
 
 (add-hook 'projectile-after-switch-project-hook #'local-pyvenv-auto-activate)
+(add-hook 'projectile-before-switch-project-hook #'local-pyvenv-auto-deactivate)

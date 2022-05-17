@@ -123,17 +123,7 @@
 ;; terminal
 (map! :after vterm
       :map vterm-mode-map
-      "M-m C-c" #'vterm-send-C-c
-      "M-m C-x" #'vterm-send-C-x)
-
-;; markdown-mode
-(set-popup-rule! "*eww"
-  :side 'right
-  :action +popup-default-display-buffer-actions
-  :size 0.5
-  :quit 'current
-  :modeline t
-  )
+      "C-c C-x" #'vterm-send-C-x)
 
 ;; undo tree
 (map! :map global-map "C--" #'undo-tree-undo)
@@ -149,13 +139,10 @@
 
 ;;; lang
 ;; c/c++
-(setq lsp-clients-clangd-args '("-j=3"
-				"--background-index"
-				"--clang-tidy"
-				"--completion-style=detailed"
-				"--header-insertion=never"
-				"--header-insertion-decorators=0"))
-(after! lsp-clangd (set-lsp-priority! 'clangd 2))
+(load! "lang/c-c++")
 
 ;; python
 (load! "lang/python")
+
+;; markdown
+(load! "lang/markdown")

@@ -31,11 +31,29 @@
 ;; unbind C-z
 (map! :map global-map "C-z" nil)
 
-;; unbind C-/
-(map! :map undo-tree-map "C-/" nil)
+;; unbind C-/ & C-?
+(map! :map global-map
+      "C-/" nil
+      "C-?" nil
+      )
+(map! :map undo-tree-map
+      "C-/" nil
+      "C-?" nil
+      )
 
-;; unbind C--
-(map! :map global-map "C--" nil)
+;; unbind C-- & C-_ & M-- & M-_
+(map! :map global-map
+      "C--" nil
+      "C-_" nil
+      "M--" nil
+      "M-_" nil
+      )
+(map! :map undo-tree-map
+      "C--" nil
+      "C-_" nil
+      "M--" nil
+      "M-_" nil
+      )
 
 ;; unbind C-?
 (map! :map global-map "C-?" nil)
