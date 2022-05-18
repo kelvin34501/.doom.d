@@ -3,10 +3,13 @@
 (setq lsp-pyright-auto-import-completions nil)
 
 (set-formatter! 'black ; overwrite prefefined black formatter
-  '("black" "-q" "--line-length" "120" "-")
+  '("black" "-q"
+    ("--line-length" "%s" (if (boundp 'local-black-line-length) local-black-line-length 120))
+    "-")
   )
-(put 'local-pyvenv-path 'safe-local-variable #'stringp)
+(put 'local-black-line-length 'safe-local-variable #'integerp)
 
+(put 'local-pyvenv-path 'safe-local-variable #'stringp)
 (defun local-pyvenv-auto-activate ()
   (if (boundp 'local-pyvenv-path)
       (progn
