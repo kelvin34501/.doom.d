@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; unbind C-x
 (map! :map ctl-x-map "a" nil)
 (map! :map ctl-x-map "e" nil)
