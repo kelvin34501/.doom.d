@@ -49,4 +49,16 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+;; diable package
+(package! anaconda-mode  :disable t)
+(package! company-anaconda :disable t)
+(package! conda :disable t)
+(package! pipenv :disable t)
+(package! nose :disable t)
+(package! pip-requirements :disable t)
+(package! pyimport :disable t)
+(package! py-isort :disable t)
+(package! python-pytest :disable t)
+
+;; custom package
 (package! transpose-frame)
