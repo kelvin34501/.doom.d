@@ -32,6 +32,7 @@
   + [ ] easy build & install project
   + [ ] ```gdb``` or ```lldb``` integration
 + remote dev
+  + [ ] understand ```tramp```
   + [ ] remote python development
   + [ ] remote vcs support
   + [ ] remote tmux support
