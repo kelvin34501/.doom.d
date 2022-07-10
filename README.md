@@ -4,6 +4,7 @@
 
 + purge
   + [ ] purge the symbol for games
+  + [x] fix undo tree issue
 + markdown
   + [ ] rebind markdown live preview with custom file cache path
   + [ ] figure out gfm-mode/markdown mode

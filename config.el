@@ -135,7 +135,9 @@
   :slot -1
   :quit t
   )
-(setq undo-tree-visualizer-diff nil)
+(after! undo-tree
+  (setq undo-tree-visualizer-diff nil)
+  )
 
 ;;; lang
 ;; c/c++
