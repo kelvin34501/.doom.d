@@ -84,6 +84,7 @@
 
 ;;; Custom
 
+;;; === basic >>>
 ;; unbind to get a cleaner emacs
 (load! "key/unbind")
 
@@ -94,6 +95,11 @@
 ;; projectile
 (setq projectile-track-known-projects-automatically nil)
 
+;; remote
+(load! "remote/basic")
+;;; <<< basic
+
+;;; === keybind >>>
 ;; warp line
 (map! :map global-map "C-z" #'visual-line-mode)
 
