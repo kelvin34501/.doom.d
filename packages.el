@@ -49,7 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; diable package
+;; disable package
 (package! anaconda-mode  :disable t)
 (package! company-anaconda :disable t)
 (package! conda :disable t)
@@ -62,3 +62,6 @@
 
 ;; custom package
 (package! transpose-frame)
+
+;; unpin package
+;; (unpin! projectile)
