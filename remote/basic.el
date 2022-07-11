@@ -23,3 +23,8 @@
           (add-to-list 'projectile-known-projects (car local-list) t)
           (setq local-list (cdr local-list))))
       )))
+
+
+;; tramp
+(after! tramp
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))

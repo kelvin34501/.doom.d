@@ -146,6 +146,8 @@
   )
 
 ;;; lang
+(load! "lang/lsp")
+
 ;; c/c++
 (load! "lang/c-c++")
 
@@ -154,3 +156,6 @@
 
 ;; markdown
 (load! "lang/markdown")
+
+;;; lang-remote
+(load! "remote/python-remote")

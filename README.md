@@ -33,8 +33,17 @@
   + [ ] easy build & install project
   + [ ] ```gdb``` or ```lldb``` integration
 + remote dev
+  + [ ] projectile remote
+    + [x] add a workaround for remember project
+    + [ ] projectile-search do not work
   + [ ] understand ```tramp```
+    + [ ] understand remote binary exec
+  + [ ] `lsp` over `tramp`
+    + [x] python
+    + [ ] server install should find correct path
   + [ ] remote python development
+    + [x] lsp
+      + [ ] keep an eye on performance
   + [ ] remote vcs support
   + [ ] remote tmux support
   + [ ] port forwarding

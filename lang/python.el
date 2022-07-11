@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 ;; python
+(setq lsp-pyright-use-library-code-for-types t)
+;(setq lsp-pyright-diagnostic-mode "workspace")
 (setq lsp-pyright-auto-import-completions nil)
 
 (set-formatter! 'black ; overwrite prefefined black formatter
